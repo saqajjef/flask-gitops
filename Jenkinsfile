@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
     stages {
         stage('Clone repository') {
             steps {
@@ -33,6 +34,6 @@ pipeline {
                     echo "triggering updatemanifestjob"
                     build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
              }
-            }
-    }   
+        }
+    } 
 }
